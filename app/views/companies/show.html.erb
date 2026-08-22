@@ -1,0 +1,19 @@
+<%= link_to "← Back to companies", companies_path, class: "text-indigo-600 hover:underline mb-4 inline-block" %>
+
+<div class="bg-white rounded-lg shadow p-8 mb-6">
+  <h1 class="text-3xl font-bold text-gray-900 mb-2"><%= @company.name %></h1>
+  <% if @company.website.present? %>
+    <p class="text-gray-600"><%= link_to @company.website, @company.website, target: "_blank", class: "text-indigo-600 hover:underline" %></p>
+  <% end %>
+  <p class="text-gray-700 mt-4"><%= @company.description %></p>
+</div>
+
+<h2 class="text-xl font-bold text-gray-900 mb-4">Open Positions</h2>
+<div class="grid gap-4">
+  <% @jobs.each do |job| %>
+    <%= link_to job_path(job), class: "block bg-white rounded-lg shadow p-6 hover:shadow-md transition" do %>
+      <h3 class="text-lg font-semibold text-gray-900"><%= job.title %></h3>
+      <p class="text-sm text-gray-500 mt-1"><%= job.location %></p>
+    <% end %>
+  <% end %>
+</div>

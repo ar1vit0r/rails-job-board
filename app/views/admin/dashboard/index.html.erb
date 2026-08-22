@@ -1,0 +1,40 @@
+<h1 class="text-2xl font-bold text-gray-900 mb-6">Admin Dashboard</h1>
+
+<div class="grid gap-6 md:grid-cols-3 mb-8">
+  <%= link_to admin_companies_path, class: "bg-white rounded-lg shadow p-6 hover:shadow-md transition" do %>
+    <h2 class="text-lg font-semibold text-gray-900">Companies</h2>
+    <p class="text-3xl font-bold text-indigo-600"><%= @companies.count %></p>
+  <% end %>
+  <%= link_to admin_jobs_path, class: "bg-white rounded-lg shadow p-6 hover:shadow-md transition" do %>
+    <h2 class="text-lg font-semibold text-gray-900">Jobs</h2>
+    <p class="text-3xl font-bold text-indigo-600"><%= @jobs.count %></p>
+  <% end %>
+  <div class="bg-white rounded-lg shadow p-6">
+    <h2 class="text-lg font-semibold text-gray-900">Applications</h2>
+    <p class="text-3xl font-bold text-indigo-600"><%= @applications.count %></p>
+  </div>
+</div>
+
+<h2 class="text-xl font-bold text-gray-900 mb-4">Recent Applications</h2>
+<div class="bg-white rounded-lg shadow overflow-hidden">
+  <table class="w-full">
+    <thead class="bg-gray-50">
+      <tr>
+        <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Name</th>
+        <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Email</th>
+        <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Job</th>
+        <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Date</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-200">
+      <% @applications.order(created_at: :desc).limit(10).each do |app| %>
+        <tr>
+          <td class="px-6 py-4 text-sm text-gray-900"><%= app.name %></td>
+          <td class="px-6 py-4 text-sm text-gray-600"><%= app.email %></td>
+          <td class="px-6 py-4 text-sm text-gray-600"><%= app.job.title %></td>
+          <td class="px-6 py-4 text-sm text-gray-500"><%= app.created_at.strftime("%b %d, %Y") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

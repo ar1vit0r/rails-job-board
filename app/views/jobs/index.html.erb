@@ -1,0 +1,42 @@
+<h1 class="text-2xl font-bold text-gray-900 mb-6">All Jobs</h1>
+
+<%= form_with url: jobs_path, method: :get, class: "flex gap-4 mb-6" do |f| %>
+  <%= f.text_field :q, placeholder: "Search...", value: params[:q], class: "border rounded-lg px-4 py-2 w-64" %>
+  <label class="flex items-center gap-2">
+    <%= f.check_box :remote, checked: params[:remote] == "1", class: "rounded" %>
+    <span class="text-gray-600">Remote</span>
+  </label>
+  <%= f.submit "Filter", class: "bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 cursor-pointer" %>
+<% end %>
+
+<div class="grid gap-4">
+  <% @jobs.each do |job| %>
+    <%= link_to job_path(job), class: "block bg-white rounded-lg shadow p-6 hover:shadow-md transition" do %>
+      <div class="flex justify-between items-start">
+        <div>
+          <h2 class="text-lg font-semibold text-gray-900"><%= job.title %></h2>
+          <p class="text-gray-600"><%= job.company.name %></p>
+          <p class="text-sm text-gray-500 mt-1"><%= job.location %></p>
+        </div>
+        <div class="text-right">
+          <% if job.remote? %>
+            <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Remote</span>
+          <% end %>
+          <% if job.salary_min.present? && job.salary_max.present? %>
+            <p class="text-sm text-gray-500 mt-2">$<%= number_with_delimiter(job.salary_min) %> - $<%= number_with_delimiter(job.salary_max) %></p>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="mt-8 flex gap-2">
+  <% if @pagy.page > 1 %>
+    <%= link_to "← Previous", jobs_path(page: @pagy.page - 1, q: params[:q], remote: params[:remote]), class: "px-4 py-2 bg-white rounded shadow hover:bg-gray-50" %>
+  <% end %>
+  <span class="px-4 py-2">Page <%= @pagy.page %> of <%= @pagy.pages %></span>
+  <% if @pagy.page < @pagy.pages %>
+    <%= link_to "Next →", jobs_path(page: @pagy.page + 1, q: params[:q], remote: params[:remote]), class: "px-4 py-2 bg-white rounded shadow hover:bg-gray-50" %>
+  <% end %>
+</div>

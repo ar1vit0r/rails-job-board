@@ -1,0 +1,30 @@
+<div class="flex justify-between items-center mb-6">
+  <h1 class="text-2xl font-bold text-gray-900">Jobs</h1>
+  <%= link_to "New Job", new_admin_job_path, class: "bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" %>
+</div>
+
+<div class="bg-white rounded-lg shadow overflow-hidden">
+  <table class="w-full">
+    <thead class="bg-gray-50">
+      <tr>
+        <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Title</th>
+        <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Company</th>
+        <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Location</th>
+        <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Actions</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-200">
+      <% @jobs.each do |job| %>
+        <tr>
+          <td class="px-6 py-4 text-sm font-medium text-gray-900"><%= job.title %></td>
+          <td class="px-6 py-4 text-sm text-gray-600"><%= job.company.name %></td>
+          <td class="px-6 py-4 text-sm text-gray-600"><%= job.location %></td>
+          <td class="px-6 py-4 text-sm space-x-2">
+            <%= link_to "Edit", edit_admin_job_path(job), class: "text-indigo-600 hover:underline" %>
+            <%= button_to "Delete", admin_job_path(job), method: :delete, class: "text-red-600 hover:underline", data: { turbo_confirm: "Are you sure?" } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
