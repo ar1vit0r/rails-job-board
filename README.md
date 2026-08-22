@@ -1,54 +1,72 @@
 # Rails Job Board
 
-A portfolio project built with Ruby on Rails, demonstrating modern Rails development practices.
+A full-stack job board application built with Rails 8, demonstrating authentication, role-based access, search/filter, and production deployment.
 
-## Features
+**[Live Demo](https://rails-job-board-zss5.onrender.com)**
 
-- Job listings with search and filter
-- Company profiles
-- Job applications
-- Admin dashboard with CRUD operations
-- User authentication (Devise)
-- Pagination (Pagy)
-- Responsive design (Tailwind CSS)
+## Highlights
+
+- **Authentication** — Devise with email/password, remember-me, and password reset
+- **Role-based access** — Admin dashboard restricted to admin users; regular users can browse and apply
+- **Job listings** — Full CRUD with search by title, remote filter, and company association
+- **Company profiles** — Each company owns its listings; admin can manage all
+- **Pagination** — Server-side pagination via Pagy (never loads all records)
+- **Responsive UI** — Tailwind CSS, mobile-first layout
 
 ## Tech Stack
 
-- Ruby on Rails 7.2
-- SQLite (development) / PostgreSQL (production)
-- Tailwind CSS
-- Devise (authentication)
-- Pagy (pagination)
+| Layer | Technology |
+|-------|------------|
+| Framework | Ruby on Rails 8.1 |
+| Language | Ruby 3.4 |
+| Database | SQLite (dev) / PostgreSQL (prod) |
+| Auth | Devise 5.0 |
+| Pagination | Pagy |
+| Frontend | Tailwind CSS, Importmap |
+| Testing | RSpec, FactoryBot, Shoulda Matchers |
+| CI | GitHub Actions |
+| Deploy | Docker + Render |
 
-## Setup
+## Quick Start
 
 ```bash
-# Clone the repository
-git clone <repo-url>
+git clone https://github.com/ar1vit0r/rails-job-board.git
 cd rails-job-board
-
-# Install dependencies
 bundle install
-
-# Setup database
 bin/rails db:create db:migrate db:seed
-
-# Start the server
 bin/dev
 ```
 
-## Admin Access
+Open [http://localhost:3000](http://localhost:3000).
 
-- Email: admin@example.com
-- Password: password
+**Admin login:** `admin@example.com` / `password`
+
+## Testing
+
+```bash
+bundle exec rspec
+```
+
+28 examples across 4 spec types:
+
+| Type | What it covers |
+|------|----------------|
+| Model (4) | Validations, associations, scopes |
+| Request (3) | Routing, auth gates, response codes |
+| System (1) | End-to-end user flow |
+| Support | Factories, shared helpers |
 
 ## Deployment
 
-This app is configured for deployment on Render:
+Configured via `render.yaml` (Blueprints):
 
 1. Push to GitHub
-2. Connect your Render account
-3. Create a new Blueprint from `render.yaml`
+2. Connect Render → New Blueprint
+3. Auto-deploys on `main` branch push
+
+## Skills Demonstrated
+
+MVC architecture, RESTful routing, ActiveRecord associations, Devise authentication, role-based authorization, server-side search/filter, pagination, database migrations, Docker containerization, CI/CD pipelines, security hardening (Brakeman, XSS fixes), and production deployment.
 
 ## License
 
