@@ -18,7 +18,7 @@
           <%= link_to "Companies", companies_path, class: "text-gray-600 hover:text-indigo-600" %>
           <% if user_signed_in? %>
             <% if current_user.admin? %>
-              <%= link_to "Admin", admin_dashboard_index_path, class: "text-gray-600 hover:text-indigo-600" %>
+              <%= link_to "Admin", admin_dashboard_path, class: "text-gray-600 hover:text-indigo-600" %>
             <% end %>
             <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "text-gray-600 hover:text-indigo-600" %>
           <% else %>
