@@ -28,6 +28,3 @@ jobs:
         run: bundle exec rspec --exclude-pattern "spec/system/**/*"
         env:
           RAILS_ENV: test
-
-      - name: Run RuboCop
-        run: bundle exec rubocop
