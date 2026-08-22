@@ -24,6 +24,11 @@ jobs:
         env:
           RAILS_ENV: test
 
+      - name: Build Tailwind CSS
+        run: bin/rails tailwindcss:build
+        env:
+          RAILS_ENV: test
+
       - name: Run tests
         run: bundle exec rspec --exclude-pattern "spec/system/**/*"
         env:
