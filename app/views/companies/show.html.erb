@@ -3,7 +3,7 @@
 <div class="bg-white rounded-lg shadow p-8 mb-6">
   <h1 class="text-3xl font-bold text-gray-900 mb-2"><%= @company.name %></h1>
   <% if @company.website.present? %>
-    <p class="text-gray-600"><%= link_to @company.website, @company.website, target: "_blank", class: "text-indigo-600 hover:underline" %></p>
+    <p class="text-gray-600"><%= link_to @company.website, @company.website, target: "_blank", rel: "noopener noreferrer", class: "text-indigo-600 hover:underline" %></p>
   <% end %>
   <p class="text-gray-700 mt-4"><%= @company.description %></p>
 </div>
