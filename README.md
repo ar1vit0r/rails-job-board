@@ -25,7 +25,7 @@ A full-stack job board application built with Rails 8, demonstrating authenticat
 | Frontend | Tailwind CSS, Importmap |
 | Testing | RSpec, FactoryBot, Shoulda Matchers |
 | CI | GitHub Actions |
-| Deploy | Docker + Render |
+| Deploy | Render (native Ruby runtime) |
 
 ## Quick Start
 
@@ -66,7 +66,7 @@ Configured via `render.yaml` (Blueprints):
 
 ## Skills Demonstrated
 
-MVC architecture, RESTful routing, ActiveRecord associations, Devise authentication, role-based authorization, server-side search/filter, pagination, database migrations, Docker containerization, CI/CD pipelines, security hardening (Brakeman, XSS fixes), and production deployment.
+MVC architecture, RESTful routing, ActiveRecord associations, Devise authentication, role-based authorization, server-side search/filter, pagination, database migrations, CI/CD pipelines, security hardening (Brakeman, XSS fixes), and production deployment.
 
 ## License
 
