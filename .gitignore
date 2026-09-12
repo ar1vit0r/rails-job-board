@@ -40,3 +40,7 @@
 # SQLite databases
 /db/*.sqlite3
 /db/*.sqlite3-*
+
+# Claude Code local config and project guidance
+/.claude/
+/CLAUDE.md
