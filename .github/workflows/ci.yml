@@ -30,6 +30,6 @@ jobs:
           RAILS_ENV: test
 
       - name: Run tests
-        run: bundle exec rspec --exclude-pattern "spec/system/**/*"
+        run: bundle exec rspec
         env:
           RAILS_ENV: test
