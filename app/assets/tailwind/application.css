@@ -1,1 +1,27 @@
 @import "tailwindcss";
+
+@theme {
+  --color-board: #0e2a26;
+  --color-row: #123531;
+  --color-rule: #2a5a52;
+  --color-paper: #f1ede2;
+  --color-muted: #9db8b0;
+  --color-signal: #ffc72c;
+
+  --font-sans: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Source Serif 4", ui-serif, Georgia, serif;
+}
+
+@layer base {
+  html { color-scheme: dark; }
+  body { background: var(--color-board); color: var(--color-paper); font-family: var(--font-sans); }
+  :focus-visible { outline: 2px solid var(--color-signal); outline-offset: 2px; }
+}
+
+@layer components {
+  /* Signage headline: Archivo at its narrowest width */
+  .font-display { font-variation-settings: "wdth" 62; font-weight: 800; letter-spacing: 0.01em; line-height: 1; }
+  .field { background: rgb(0 0 0 / 0.25); border: 1px solid var(--color-rule); border-radius: 4px; padding: 0.5rem 0.75rem; width: 100%; color: var(--color-paper); }
+  .btn { background: var(--color-signal); color: var(--color-board); font-weight: 700; padding: 0.5rem 1.25rem; border-radius: 4px; cursor: pointer; }
+  .btn:hover { background: var(--color-paper); }
+}

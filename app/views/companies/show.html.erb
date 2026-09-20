@@ -1,19 +1,19 @@
-<%= link_to "← Back to companies", companies_path, class: "text-indigo-600 hover:underline mb-4 inline-block" %>
+<%= link_to "Back to companies", companies_path, class: "text-muted hover:text-paper underline decoration-signal underline-offset-4" %>
 
-<div class="bg-white rounded-lg shadow p-8 mb-6">
-  <h1 class="text-3xl font-bold text-gray-900 mb-2"><%= @company.name %></h1>
+<header class="mt-6 pb-8 border-b border-paper/40">
+  <h1 class="font-display text-5xl md:text-7xl"><%= @company.name %></h1>
   <% if @company.website.present? %>
-    <p class="text-gray-600"><%= link_to @company.website, @company.website, target: "_blank", rel: "noopener noreferrer", class: "text-indigo-600 hover:underline" %></p>
+    <p class="mt-3"><%= link_to @company.website, @company.website, target: "_blank", rel: "noopener noreferrer", class: "underline decoration-signal underline-offset-4" %></p>
   <% end %>
-  <p class="text-gray-700 mt-4"><%= @company.description %></p>
-</div>
+  <p class="font-serif text-lg leading-8 max-w-[65ch] mt-4"><%= @company.description %></p>
+</header>
 
-<h2 class="text-xl font-bold text-gray-900 mb-4">Open Positions</h2>
-<div class="grid gap-4">
+<h2 class="text-2xl font-bold mt-10 mb-2">Open positions</h2>
+<div>
   <% @jobs.each do |job| %>
-    <%= link_to job_path(job), class: "block bg-white rounded-lg shadow p-6 hover:shadow-md transition" do %>
-      <h3 class="text-lg font-semibold text-gray-900"><%= job.title %></h3>
-      <p class="text-sm text-gray-500 mt-1"><%= job.location %></p>
+    <%= link_to job_path(job), class: "group flex flex-wrap justify-between gap-x-6 gap-y-1 -mx-3 px-3 py-4 border-b border-rule hover:bg-row focus-visible:bg-row" do %>
+      <h3 class="text-lg font-semibold group-hover:underline decoration-signal underline-offset-4"><%= job.title %></h3>
+      <p class="text-muted"><%= job.location %></p>
     <% end %>
   <% end %>
 </div>

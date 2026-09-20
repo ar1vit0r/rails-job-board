@@ -1,11 +1,11 @@
-<h1 class="text-2xl font-bold text-gray-900 mb-6">Companies</h1>
+<h1 class="font-display text-5xl md:text-7xl mb-8">Companies</h1>
 
-<div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+<div>
   <% @companies.each do |company| %>
-    <%= link_to company_path(company), class: "block bg-white rounded-lg shadow p-6 hover:shadow-md transition" do %>
-      <h2 class="text-lg font-semibold text-gray-900"><%= company.name %></h2>
-      <p class="text-gray-600 text-sm mt-1"><%= company.description&.truncate(100) %></p>
-      <p class="text-indigo-600 text-sm mt-2"><%= company.jobs.count %> open positions</p>
+    <%= link_to company_path(company), class: "group grid gap-x-6 gap-y-1 -mx-3 px-3 py-4 border-b border-rule md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)_9rem] md:items-baseline hover:bg-row focus-visible:bg-row" do %>
+      <h2 class="text-lg font-semibold group-hover:underline decoration-signal underline-offset-4"><%= company.name %></h2>
+      <p class="font-serif text-muted"><%= company.description&.truncate(100) %></p>
+      <p class="tabular-nums md:text-right"><%= pluralize(company.jobs.size, "open position") %></p>
     <% end %>
   <% end %>
 </div>
