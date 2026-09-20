@@ -68,6 +68,11 @@ Configured via `render.yaml` (Blueprints):
 
 MVC architecture, RESTful routing, ActiveRecord associations, Devise authentication, role-based authorization, server-side search/filter, pagination, database migrations, CI/CD pipelines, security hardening (Brakeman, XSS fixes), and production deployment.
 
+## Roadmap
+
+- [ ] Style the shared Devise links partial (`devise/shared/_links`), which still renders unstyled links
+- [ ] Restyle the Devise mailer templates to match the site theme
+
 ## License
 
 MIT
