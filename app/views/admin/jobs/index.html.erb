@@ -1,27 +1,27 @@
 <div class="flex justify-between items-center mb-6">
-  <h1 class="text-2xl font-bold text-gray-900">Jobs</h1>
-  <%= link_to "New Job", new_admin_job_path, class: "bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" %>
+  <h1 class="font-display text-4xl md:text-5xl">Jobs</h1>
+  <%= link_to "New Job", new_admin_job_path, class: "btn" %>
 </div>
 
-<div class="bg-white rounded-lg shadow overflow-hidden">
+<div class="overflow-hidden border border-rule">
   <table class="w-full">
-    <thead class="bg-gray-50">
+    <thead class="border-b border-paper/40">
       <tr>
-        <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Title</th>
-        <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Company</th>
-        <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Location</th>
-        <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Actions</th>
+        <th class="px-6 py-3 text-left text-sm font-medium text-muted">Title</th>
+        <th class="px-6 py-3 text-left text-sm font-medium text-muted">Company</th>
+        <th class="px-6 py-3 text-left text-sm font-medium text-muted">Location</th>
+        <th class="px-6 py-3 text-left text-sm font-medium text-muted">Actions</th>
       </tr>
     </thead>
-    <tbody class="divide-y divide-gray-200">
+    <tbody class="divide-y divide-rule">
       <% @jobs.each do |job| %>
         <tr>
-          <td class="px-6 py-4 text-sm font-medium text-gray-900"><%= job.title %></td>
-          <td class="px-6 py-4 text-sm text-gray-600"><%= job.company.name %></td>
-          <td class="px-6 py-4 text-sm text-gray-600"><%= job.location %></td>
+          <td class="px-6 py-4 text-sm font-medium"><%= job.title %></td>
+          <td class="px-6 py-4 text-sm text-muted"><%= job.company.name %></td>
+          <td class="px-6 py-4 text-sm text-muted"><%= job.location %></td>
           <td class="px-6 py-4 text-sm space-x-2">
-            <%= link_to "Edit", edit_admin_job_path(job), class: "text-indigo-600 hover:underline" %>
-            <%= button_to "Delete", admin_job_path(job), method: :delete, class: "text-red-600 hover:underline", data: { turbo_confirm: "Are you sure?" } %>
+            <%= link_to "Edit", edit_admin_job_path(job), class: "text-signal hover:underline" %>
+            <%= button_to "Delete", admin_job_path(job), method: :delete, class: "text-red-300 hover:underline", data: { turbo_confirm: "Are you sure?" } %>
           </td>
         </tr>
       <% end %>
