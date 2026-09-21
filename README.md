@@ -72,6 +72,7 @@ MVC architecture, RESTful routing, ActiveRecord associations, Devise authenticat
 
 - [x] Style the shared Devise links partial (`devise/shared/_links`), which still renders unstyled links
 - [x] Restyle the Devise mailer templates to match the site theme
+- [ ] Make Devise emails work in production: set a real `config.mailer_sender`, `action_mailer.default_url_options` (host) and an SMTP delivery method
 
 ## License
 
