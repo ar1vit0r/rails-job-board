@@ -1,4 +1,7 @@
-<h1 class="font-display text-5xl md:text-7xl mb-8"><%= title %></h1>
+<div class="flex flex-wrap items-baseline justify-between gap-x-6 mb-8">
+  <h1 class="font-display text-5xl md:text-7xl"><%= title %></h1>
+  <p class="text-muted tabular-nums"><%= pluralize(pagy.count, "role") %></p>
+</div>
 
 <%= form_with url: jobs_path, method: :get, class: "flex flex-wrap items-center gap-x-4 gap-y-3 mb-10" do |f| %>
   <%= f.search_field :q, value: params[:q], placeholder: "Job title or keyword", "aria-label": "Search jobs", class: "field sm:max-w-sm" %>
@@ -10,7 +13,8 @@
 <% end %>
 
 <% if jobs.any? %>
-  <div class="hidden md:grid md:grid-cols-[minmax(0,2.2fr)_minmax(0,1.3fr)_minmax(0,1.5fr)_minmax(0,1.2fr)] gap-x-6 -mx-3 px-3 pb-2 text-sm text-muted border-b border-paper/40">
+  <div class="board-cols hidden md:grid gap-x-6 -mx-3 px-3 pb-2 text-sm text-muted border-b border-paper/40">
+    <span>Posted</span>
     <span>Role</span>
     <span>Company</span>
     <span>Location</span>

@@ -21,6 +21,18 @@
 @layer components {
   /* Signage headline: Archivo at its narrowest width */
   .font-display { font-variation-settings: "wdth" 62; font-weight: 800; letter-spacing: 0.01em; line-height: 1; }
+  /* Board columns: Posted, Role, Company, Location, Pay. Shared by the header and every row. */
+  @media (min-width: 48rem) {
+    .board-cols { grid-template-columns: 5.5rem minmax(0, 2.2fr) minmax(0, 1.3fr) minmax(0, 1.5fr) 12rem; }
+  }
+  /* Rows flip in like a departures board; --i staggers them. Skipped under reduced motion. */
+  @keyframes board-flip {
+    from { transform: perspective(600px) rotateX(-90deg); opacity: 0; }
+    to { transform: none; opacity: 1; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .board-row { transform-origin: top; animation: board-flip 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) backwards; animation-delay: calc(var(--i, 0) * 45ms); }
+  }
   .field { background: rgb(0 0 0 / 0.25); border: 1px solid var(--color-rule); border-radius: 4px; padding: 0.5rem 0.75rem; width: 100%; color: var(--color-paper); }
   .btn { background: var(--color-signal); color: var(--color-board); font-weight: 700; padding: 0.5rem 1.25rem; border-radius: 4px; cursor: pointer; }
   .btn:hover { background: var(--color-paper); }
