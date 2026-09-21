@@ -70,7 +70,7 @@ MVC architecture, RESTful routing, ActiveRecord associations, Devise authenticat
 
 ## Roadmap
 
-- [ ] Style the shared Devise links partial (`devise/shared/_links`), which still renders unstyled links
+- [x] Style the shared Devise links partial (`devise/shared/_links`), which still renders unstyled links
 - [ ] Restyle the Devise mailer templates to match the site theme
 
 ## License
