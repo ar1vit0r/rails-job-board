@@ -5,7 +5,7 @@ class JobsController < ApplicationController
     scope = Job.includes(:company).order(created_at: :desc)
     scope = scope.where("title LIKE ?", "%#{params[:q]}%") if params[:q].present?
     scope = scope.where(remote: true) if params[:remote] == "1"
-    @pagy, @jobs = pagy(scope, items: 10)
+    @pagy, @jobs = pagy(scope, limit: 10)
   end
 
   def show
