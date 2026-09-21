@@ -1,1 +1,8 @@
-<p><%= link_to text, url, style: "display:inline-block; background:#ffc72c; color:#0e2a26; font-weight:700; padding:10px 20px; border-radius:4px; text-decoration:none;" %></p>
+<%# The yellow fill sits on the <td bgcolor>, not on the link: Outlook desktop ignores background and padding on inline links. %>
+<table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 16px;">
+  <tr>
+    <td bgcolor="<%= mail_color(:signal) %>" style="background:<%= mail_color(:signal) %>; border-radius:4px;">
+      <%= link_to text, url, style: "display:inline-block; padding:10px 20px; color:#{mail_color(:board)}; font-weight:700; text-decoration:none;" %>
+    </td>
+  </tr>
+</table>
